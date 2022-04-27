@@ -4,19 +4,11 @@ services:
 
   app:
     image: vernerb/node-fullcycle:latest
-    #build: 
-    #  context: node
     container_name: app
     entrypoint: dockerize -wait tcp://db:3306 -timeout 30s npm start
-    #npm start
-    #dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
     networks: 
       - full-cycle-network
-    #volumes: 
-    #  - ./node:/usr/src/app
     tty: true
-    #ports: 
-    #  - "3000:3000"
     depends_on: 
        - db
 
@@ -26,7 +18,6 @@ services:
     container_name: db
     restart: always
     tty: true
-    ##command: --init-file /var/lib/mysql/init.sql
     volumes: 
       - ./mysql:/var/lib/mysql
     entrypoint:
