@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Desafio Full Cycle Nginx / Node / MySQL</title>
+</head>
+<body>
+    <div class="table-data">
+<h2>Full Cycle Rocks!</h2>
+    <table border="1">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+        </tr>
+        
+        <%
+        if(peopleData.length!=0){
+        var i=1;
+        peopleData.forEach(function(data){
+        %>
+        <tr>
+            <td><%=i; %></td>
+            <td><%=data.name %></td>
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+    </div>
+</body>
+</html>

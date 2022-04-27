@@ -1,0 +1,13 @@
+server {
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+    upstream myproxy {
+        server http://app:3000
+    }
+
+    location / {
+        proxy_pass http://myproxy/;
+    }
+}
